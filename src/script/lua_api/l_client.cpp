@@ -20,8 +20,7 @@
 #include "util/string.h"
 #include "nodedef.h"
 
-#define checkCSMRestrictionFlag(flag) \
-	( getClient(L)->checkCSMRestrictionFlag(CSMRestrictionFlags::flag) )
+#define checkCSMRestrictionFlag(flag) false
 
 // Not the same as FlagDesc, which contains an `u32 flag`
 struct CSMFlagDesc {
