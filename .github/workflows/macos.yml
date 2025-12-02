@@ -90,8 +90,8 @@ jobs:
 
       - name: Test GNU Make build
         run: |
-          mkdir -p "${HOME}/Library/Application Support/minetest/games/"
-          ln -s "${PWD}/games/devtest" "${HOME}/Library/Application Support/minetest/games/"
+          mkdir -p "${HOME}/Library/Application Support/erbium/games/"
+          ln -s "${PWD}/games/devtest" "${HOME}/Library/Application Support/erbium/games/"
           ./build/macos/erbium.app/Contents/MacOS/erbium --run-unittests
 
       - name: Test XCode build
