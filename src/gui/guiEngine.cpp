@@ -410,7 +410,7 @@ void GUIEngine::drawClouds(float dtime)
 }
 
 /******************************************************************************/
-void GUIEngine::setMainMenuCloudsColor
+void GUIEngine::setMainMenuCloudsColor(video::SColor& color)
 {
 m_rendering_engine->setMenuCloudsColor(color);
 }
