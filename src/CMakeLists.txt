@@ -1,4 +1,4 @@
-project(luanti)
+project(erbium)
 
 INCLUDE(CheckTypeSize)
 INCLUDE(CheckIncludeFiles)
