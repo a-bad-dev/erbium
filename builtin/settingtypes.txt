@@ -148,7 +148,7 @@ toggle_aux1_key (Toggle Aux1 key) bool false
 #    the place button.
 #
 #    Requires: keyboard_mouse
-repeat_place_time (Place repetition interval) float 0.25 0.16 2.0
+repeat_place_time (Place repetition interval) float 0.25 0.001 2.0
 
 #    The minimum time in seconds it takes between digging nodes when holding
 #    the dig button.
@@ -884,6 +884,9 @@ tooltip_append_itemname (Append item name) bool false
 
 #    Use a cloud animation for the main menu background.
 menu_clouds (Clouds in menu) bool true
+
+#    Use dark theme for the main menu background
+menu_dark_theme (Menu dark theme) bool true
 
 [**HUD]
 
