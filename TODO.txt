@@ -1,0 +1,31 @@
+# Erbium Client TODO
+
+## MAIN MENU
+[X] Dark theme main menu
+[ ] Custom Menu banner
+[ ] Lua Console
+
+## GAMEPLAY
+### INTERACT
+[X] Bypassed low place time limit
+
+
+### CHAT
+[ ] Encrypted Messages
+[ ] Better Name autofill
+
+
+### CSMs
+[ ] In-game Lua execution
+[ ] HTTP API
+[X] Bypassed CSM Restrictions
+
+
+### MISC
+[ ] Configurable Chat macros
+
+
+## GRAPHICS
+[ ] Custom Light temperature
+[ ] Screen-Space Reflections
+[ ] Fullbright
