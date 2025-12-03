@@ -380,6 +380,9 @@ void set_default_settings()
 	settings->setDefault("shadow_map_texture_32bit", "true");
 	settings->setDefault("shadow_map_color", "false");
 
+	// Cheats
+	settings->setDefault("fullbright", "false");
+
 	// Input
 	settings->setDefault("invert_mouse", "false");
 	settings->setDefault("enable_hotbar_mouse_wheel", "true");

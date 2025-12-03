@@ -464,6 +464,9 @@ void main(void)
 		base = mix(base, crack, crack.a);
 	}
 
+#ifdef ENABLE_FULLBRIGHT
+	vec4 col = base;
+#else
 	vec4 col = vec4(base.rgb * varColor.rgb, 1.0);
 
 #ifdef ENABLE_DYNAMIC_SHADOWS
@@ -582,6 +585,7 @@ void main(void)
 		col.rgb += 4.0 * dayLight * base.rgb * normalize(base.rgb * varColor.rgb * varColor.rgb) * f_adj_shadow_strength * pow(max(-dot(v_LightDirection, viewVec), 0.0), 4.0) * max(1.0 - shadow_uncorrected, 0.0);
 #endif
 	}
+#endif
 #endif
 
 	// Due to a bug in some (older ?) graphics stacks (possibly in the glsl compiler ?),

@@ -724,6 +724,9 @@ smooth_lighting (Smooth lighting) bool true
 #    at the expense of minor visual glitches that do not impact game playability.
 performance_tradeoffs (Tradeoffs for performance) bool false
 
+[**Cheats]
+fullbright (Fullbright) bool false
+
 
 [**Waving Nodes]
 

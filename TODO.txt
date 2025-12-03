@@ -28,4 +28,4 @@
 ## GRAPHICS
 [ ] Custom Light temperature
 [ ] Screen-Space Reflections
-[ ] Fullbright
+[X] Fullbright

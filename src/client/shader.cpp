@@ -211,6 +211,9 @@ public:
 	void onGenerate(const std::string &name, ShaderConstants &constants) override
 	{
 		constants["ENABLE_TONE_MAPPING"] = g_settings->getBool("tone_mapping") ? 1 : 0;
+		
+		if (g_settings->getBool("fullbright"))
+			constants["ENABLE_FULLBRIGHT"] = 1;
 
 		if (g_settings->getBool("enable_dynamic_shadows")) {
 			constants["ENABLE_DYNAMIC_SHADOWS"] = 1;
