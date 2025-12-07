@@ -7,32 +7,23 @@
 </div>
 <br>
 
-Erbium is a free and open-source fork of Luanti.
+Erbium is a free and open-source fork of [Luanti](https://luanti.org/).
 
-Copyright (C) 2010-2025 Perttu Ahola <celeron55@gmail.com>
-and contributors (see source file comments and the version control log)
+Erbium is intended to be an advanced client. For server hosting or a general experience, see the upstream project, [Luanti](https://luanti.org/).
+
+Copyright (C) 2025 IonicCheese
+and contributors (see source file comments, the upstream project, and the version control log)
 
 Table of Contents
 ------------------
 
-1. [Further Documentation](#further-documentation)
-2. [Default Controls](#default-controls)
-3. [Paths](#paths)
-4. [Configuration File](#configuration-file)
-5. [Command-line Options](#command-line-options)
-6. [Compiling](#compiling)
-7. [Docker](#docker)
-8. [Version Scheme](#version-scheme)
-
-
-Further documentation
-----------------------
-- Website: https://www.luanti.org/
-- Luanti Documentation: https://docs.luanti.org/
-- Forum: https://forum.luanti.org/
-- GitHub: https://github.com/luanti-org/luanti/
-- [Developer documentation](doc/developing/)
-- [doc/](doc/) directory of source distribution
+1. [Default Controls](#default-controls)
+2. [Paths](#paths)
+3. [Configuration File](#configuration-file)
+4. [Command-line Options](#command-line-options)
+5. [Compiling](#compiling)
+6. [Docker](#docker)
+7. [Version Scheme](#version-scheme)
 
 Default controls
 ----------------
@@ -57,7 +48,6 @@ Some can be changed in the key config dialog in the settings tab.
 | T                             | Chat                                                           |
 | /                             | Command                                                        |
 | Esc                           | Pause menu/abort/exit (pauses only singleplayer game)          |
-| Shift + Esc                   | Exit directly to main menu from anywhere, bypassing pause menu |
 | +                             | Increase view range                                            |
 | -                             | Decrease view range                                            |
 | K                             | Enable/disable fly mode (needs fly privilege)                  |
@@ -109,7 +99,7 @@ Configuration file
 ------------------
 - Default location:
     `user/minetest.conf`
-- This file is created by closing Luanti for the first time.
+- This file is created by closing Erbium for the first time.
 - A specific file can be specified on the command line:
     `--config <path-to-file>`
 - A run-in-place build will look for the configuration file in
