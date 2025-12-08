@@ -347,10 +347,10 @@ void GUIEngine::run()
 				m_script->handleMainMenuEvent("WindowInfoChange");
 				last_window_info = window_info;
 			}
-			
+
 			driver->beginScene(true, true, m_rendering_engine->getMenuSkyColor());
 			driver->setFog(m_rendering_engine->getMenuSkyColor());
-			
+
 			if (m_clouds_enabled) {
 				drawClouds(dtime);
 				drawOverlay(driver);

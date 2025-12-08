@@ -311,7 +311,7 @@ void RenderingEngine::draw_load_screen(const std::wstring &text,
 
 	driver->setFog(getMenuSkyColor());
 	driver->beginScene(true, true, getMenuSkyColor());
-	
+
 	if (g_settings->getBool("menu_clouds")) {
 		g_menuclouds->step(dtime * 3);
 		g_menucloudsmgr->drawAll();

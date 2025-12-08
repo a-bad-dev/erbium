@@ -134,7 +134,7 @@ public:
 	{
 		return m_device->run();
 	}
-	
+
 	void setMenuSkyColor(video::SColor &color);
 	void setMenuCloudsColor(video::SColor &color);
 	const video::SColor getMenuSkyColor();
