@@ -249,6 +249,16 @@ int ModApiMainMenu::l_set_sky_color(lua_State* L)
 	return 0;
 }
 /******************************************************************************/
+int ModApiMainMenu::l_set_stars_enabled(lua_State* L)
+{
+	GUIEngine* engine = getGuiEngine(L);
+	sanity_check(engine != NULL);
+
+	bool enabled = readParam<bool>(L, 1);
+	engine->setMainMenuStarsEnabled(enabled);
+	return 0;
+}
+/******************************************************************************/
 int ModApiMainMenu::l_get_textlist_index(lua_State *L)
 {
 	// get_table_index accepts both tables and textlists
@@ -1109,6 +1119,7 @@ void ModApiMainMenu::Initialize(lua_State *L, int top)
 	API_FCT(set_clouds);
 	API_FCT(set_sky_color);
 	API_FCT(set_clouds_color);
+	API_FCT(set_stars_enabled);
 	API_FCT(get_textlist_index);
 	API_FCT(get_table_index);
 	API_FCT(get_worlds);

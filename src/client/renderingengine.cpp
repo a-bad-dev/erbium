@@ -312,12 +312,12 @@ void RenderingEngine::draw_load_screen(const std::wstring &text,
 	driver->setFog(getMenuSkyColor());
 	driver->beginScene(true, true, getMenuSkyColor());
 
+	drawMenuStars(driver, dtime * 3.0f);
+
 	if (g_settings->getBool("menu_clouds")) {
 		g_menuclouds->step(dtime * 3);
 		g_menucloudsmgr->drawAll();
 	}
-
-	drawMenuStars(driver, dtime);
 
 	int percent_min = 0;
 	int percent_max = percent;
@@ -414,6 +414,11 @@ void RenderingEngine::setMenuCloudsColor(video::SColor& color)
 	m_menu_clouds_color = video::SColor(color);
 }
 
+void RenderingEngine::setMenuStarsEnabled(bool enabled)
+{
+	m_menu_stars_enabled = enabled;
+}
+
 
 const video::SColor RenderingEngine::getMenuSkyColor()
 {
@@ -425,6 +430,11 @@ const video::SColor RenderingEngine::getMenuCloudsColor()
 	return m_menu_clouds_color;
 }
 
+
+bool RenderingEngine::getMenuStarsEnabled()
+{
+	return m_menu_stars_enabled;
+}
 
 
 void RenderingEngine::draw_scene(video::SColor skycolor, bool show_hud,

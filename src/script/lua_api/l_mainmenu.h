@@ -78,6 +78,8 @@ private:
 
 	static int l_set_sky_color(lua_State* L);
 
+	static int l_set_stars_enabled(lua_State* L);
+
 	static int l_get_textlist_index(lua_State *L);
 
 	static int l_get_table_index(lua_State *L);

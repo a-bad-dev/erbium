@@ -33,9 +33,11 @@ function mm_game_theme.set_engine(hide_decorations)
 	if core.settings:get_bool("menu_dark_theme") then
 		core.set_clouds_color("#1c2a47")
 		core.set_sky_color("#090b1a")
+		core.set_stars_enabled(core.settings:get_bool("menu_stars"))
 	else
 		core.set_clouds_color("#f0f0ff")
 		core.set_sky_color("#8cbafa")
+		core.set_stars_enabled(false)
 	end
 
 	if not hide_decorations then

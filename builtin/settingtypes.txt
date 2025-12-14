@@ -950,6 +950,10 @@ menu_clouds (Clouds in menu) bool true
 #    Use dark theme for the main menu background
 menu_dark_theme (Menu dark theme) bool true
 
+#    Display stars in the main menu background
+#    Requires: menu_dark_theme
+menu_stars (Menu background stars) bool true
+
 [**HUD]
 
 #    Modifies the size of the HUD elements.

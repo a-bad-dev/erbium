@@ -351,10 +351,9 @@ void GUIEngine::run()
 			driver->beginScene(true, true, m_rendering_engine->getMenuSkyColor());
 			driver->setFog(m_rendering_engine->getMenuSkyColor());
 
-			if (m_clouds_enabled) {
-				if (m_rendering_engine->getMenuStarsEnabled())
-					m_rendering_engine->drawMenuStars(driver, dtime);
+			m_rendering_engine->drawMenuStars(driver, dtime * 3.0f);
 
+			if (m_clouds_enabled) {
 				drawClouds(dtime);
 				drawOverlay(driver);
 			} else {
