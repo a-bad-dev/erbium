@@ -3,11 +3,13 @@
 ## BASE
 [/] Custom Logo
 
+
 ## MAIN MENU
 [X] Dark theme main menu
 [X] Main menu stars
 [/] Custom Menu banner
 [ ] Lua Console
+
 
 ## GAMEPLAY
 ### INTERACT
@@ -27,9 +29,10 @@
 
 ### MISC
 [X] Configurable Chat macros (10x)
+[ ] Version String Cloaking
 
 
 ## GRAPHICS
-[ ] Custom Artificial Light temperature
+[X] Custom Artificial Light temperature
 [ ] Water Screen-Space Reflections
-[X] Fullbright
+[ ] Other Eye-candy effects
