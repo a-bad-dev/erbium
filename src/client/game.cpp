@@ -88,7 +88,7 @@ void kelvinToRgb(video::SColorf &color, u32 kelvin)
 	if (temp >= 66.0) {
 		b = 255.0;
 	} else {
-		if (temp <= 19.0)
+		if (temp <= 19.0) {
 		    b = 0.0;
 		} else {
 			b = temp - 10.0;
