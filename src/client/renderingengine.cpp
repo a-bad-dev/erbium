@@ -436,6 +436,94 @@ bool RenderingEngine::getMenuStarsEnabled()
 	return m_menu_stars_enabled;
 }
 
+void RenderingEngine::generateMenuStars()
+{
+	auto size = getWindowSize();
+	float scale_x = (1.0f / size.X);
+	float scale_y = (1.0f / size.Y);
+	m_menu_stars.clear();
+
+	for (int i = 0; i < 96; i++) {
+		float x = rand() % size.X * scale_x;
+		float y = rand() % size.Y * scale_y;
+		float star_size = (rand() % 8 + 4) * 0.0004f;
+		m_menu_stars.push_back(core::vector3d<f32>(x, y, star_size));
+	}
+}
+
+void RenderingEngine::drawMenuStars(video::IVideoDriver *driver, float dtime)
+{
+	static float star_time = 0;
+	star_time += dtime;
+	if (star_time > M_PI * 2)
+		star_time = 0.0f;
+
+	if (!m_menu_stars_enabled)
+		return;
+
+	if (driver == nullptr)
+		return;
+
+	if (m_menu_stars.empty())
+		generateMenuStars();
+
+	auto window_size = getWindowSize();
+
+	std::vector<video::S3DVertex> vertices;
+	std::vector<u16> indices;
+	vertices.reserve(m_menu_stars.size() * 4);
+	indices.reserve(m_menu_stars.size() * 6);
+
+	for (const auto& star : m_menu_stars)
+	{
+		// Reconstruct the original star size and position
+		s32 x = (s32)(star.X * window_size.X);
+		s32 y = (s32)(star.Y * window_size.Y);
+		s32 size = (s32)(star.Z * window_size.Y);
+		if (size < 1) size = 1;
+
+		float seed = (x * 12.9898f) + (y * 78.233f);
+		float brightness = 128 * (std::sin(star_time + seed) / 2 + 0.5f);
+
+		video::SColor color(brightness + 64, 255, 255, 255);
+
+		vertices.emplace_back(video::S3DVertex(core::vector3df(x, y, 0), core::vector3df(0,0,1), color, core::vector2df(0, 0)));
+		vertices.emplace_back(video::S3DVertex(core::vector3df(x + size, y, 0), core::vector3df(0,0,1), color, core::vector2df(0, 0)));
+		vertices.emplace_back(video::S3DVertex(core::vector3df(x + size, y + size, 0), core::vector3df(0,0,1), color, core::vector2df(0, 0)));
+		vertices.emplace_back(video::S3DVertex(core::vector3df(x, y + size, 0), core::vector3df(0,0,1), color, core::vector2df(0, 0)));
+
+		u16 start_idx = vertices.size() - 4;
+
+		indices.push_back(start_idx);
+		indices.push_back(start_idx + 1);
+		indices.push_back(start_idx + 2);
+
+		indices.push_back(start_idx);
+		indices.push_back(start_idx + 2);
+		indices.push_back(start_idx + 3);
+	}
+
+	if (!vertices.empty()) {
+		video::SMaterial m;
+		m.Thickness = 1;
+		m.ZWriteEnable = video::EZW_OFF;
+		m.MaterialType = video::EMT_TRANSPARENT_VERTEX_ALPHA;
+		m.TextureLayers[0].Texture = nullptr;
+		
+		driver->setMaterial(m);
+
+        driver->draw2DVertexPrimitiveList(
+            vertices.data(),
+            vertices.size(),
+            indices.data(),
+            indices.size() / 3,
+            video::EVT_STANDARD,
+            scene::EPT_TRIANGLES,
+            video::EIT_16BIT
+        );
+    }
+}
+
 
 void RenderingEngine::draw_scene(video::SColor skycolor, bool show_hud,
 		bool draw_wield_tool, bool draw_crosshair)

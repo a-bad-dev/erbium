@@ -2,11 +2,12 @@
 
 ## BASE
 [/] Custom Logo
+[ ] Rebase to 5.15.0
 
 
 ## MAIN MENU
 [X] Dark theme main menu
-[/] Main menu stars
+[X] Main menu stars
 [/] Custom Menu banner
 
 

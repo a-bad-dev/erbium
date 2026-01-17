@@ -143,53 +143,8 @@ public:
 	const video::SColor getMenuCloudsColor();
 	bool getMenuStarsEnabled();
 
-	void generateMenuStars()
-	{
-		auto size = getWindowSize();
-		float scale_x = (1.0f / size.X);
-		float scale_y = (1.0f / size.Y);
-		m_menu_stars.clear();
-
-		for (int i = 0; i < 96; i++) {
-			float x = rand() % size.X * scale_x;
-			float y = rand() % size.Y * scale_y;
-			float star_size = (rand() % 8 + 4) * 0.0004f;
-			m_menu_stars.push_back(core::vector3d<f32>(x, y, star_size));
-		}
-	}
-
-	void drawMenuStars(video::IVideoDriver *driver, float dtime)
-	{
-		static float star_time = 0;
-		star_time += dtime;
-		if (star_time > M_PI * 2)
-			star_time = 0.0f;
-
-		if (!m_menu_stars_enabled)
-			return;
-
-		if (driver == nullptr)
-			return;
-
-		if (m_menu_stars.empty())
-			generateMenuStars();
-
-		auto window_size = getWindowSize();
-		for (const auto& star : m_menu_stars)
-		{
-			// Reconstruct the original star size and position
-			s32 x = (s32)(star.X * window_size.X);
-			s32 y = (s32)(star.Y * window_size.Y);
-			s32 size = (s32)(star.Z * window_size.Y);
-			if (size < 1) size = 1;
-
-			float seed = (x * 12.9898f) + (y * 78.233f);
-			float brightness = 128 * (std::sin(star_time + seed) / 2 + 0.5f);
-
-			driver->draw2DRectangle(video::SColor(brightness + 64, 255, 255, 255),
-									core::rect<s32>(x, y, x + size, y + size));
-		}
-	}
+	void generateMenuStars();
+	void drawMenuStars(video::IVideoDriver *driver, float dtime);
 
 	// FIXME: this is still global when it shouldn't be
 	static ShadowRenderer *get_shadow_renderer()
