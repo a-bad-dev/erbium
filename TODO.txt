@@ -2,13 +2,13 @@
 
 ## BASE
 [/] Custom Logo
+[ ] Rebase to 5.15.0
 
 
 ## MAIN MENU
 [X] Dark theme main menu
 [X] Main menu stars
 [/] Custom Menu banner
-[ ] Lua Console
 
 
 ## GAMEPLAY
@@ -22,14 +22,18 @@
 
 
 ### CSMs
-[ ] In-game Lua execution
 [ ] HTTP API
 [X] Bypassed CSM Restrictions
 
 
 ### MISC
 [X] Configurable Chat macros (10x)
-[ ] Version String Cloaking
+[ ] Version String Cloaking (Hide the leading `E`)
+
+
+### ADVANCED
+[ ] Display server-set settings that influence the client (Physics overrides, allowed hud elements, etc)
+[ ] In-game Lua execution
 
 
 ## GRAPHICS
